@@ -118,6 +118,8 @@ namespace novatel_gps_driver
     use_binary_messages_ = this->declare_parameter("use_binary_messages", use_binary_messages_);
     span_frame_to_ros_frame_ = this->declare_parameter("span_frame_to_ros_frame", span_frame_to_ros_frame_);
 
+    expected_rate_ = 1.0 / polling_period_;
+
     connection_type_ = this->declare_parameter("connection_type", connection_type_);
     connection_ = NovatelGps::ParseConnection(connection_type_);
     serial_baud_ = this->declare_parameter("serial_baud", serial_baud_);
